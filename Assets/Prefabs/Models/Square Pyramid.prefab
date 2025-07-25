@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 1, y: 0, z: -0, w: 0.00000019470718}
   m_LocalPosition: {x: 0.015805513, y: 0.25601834, z: -5.0969377}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 33, y: 33, z: 33}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -147,10 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedTag: SquarePyramidUV
-  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
   glowDuration: 1.5
   popScale: 1.2
   popDuration: 0.3
   shakeDuration: 0.4
   shakeIntensity: 0.1
   isSolved: 0
+  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 7f93e5a0df31c3845abee9873420d355, type: 2}

@@ -6,7 +6,6 @@ public class ShapeValidator : MonoBehaviour
     public string expectedTag = "CorrectNet";
 
     [Header("Feedback")]
-    public Material glowMaterial;
     public float glowDuration = 1.5f;
     public float popScale = 1.2f;
     public float popDuration = 0.3f;
@@ -14,7 +13,11 @@ public class ShapeValidator : MonoBehaviour
     public float shakeIntensity = 0.1f;
     public bool isSolved = false;
 
+    [Header("Material")]
+    public Material glowMaterial;
+    public Material greenMaterial;
     private Material originalMaterial;
+
     private Renderer rend;
     private Vector3 originalScale;
     private bool isAnimating = false;
@@ -63,8 +66,13 @@ public class ShapeValidator : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+
+        // Wait for glow to finish
         yield return new WaitForSeconds(glowDuration);
-        rend.material = originalMaterial;
+
+        // Set to permanent green
+        rend.material = greenMaterial;
+
         isAnimating = false;
     }
 

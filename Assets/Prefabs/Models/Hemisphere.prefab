@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: 0, y: 0.18165565, z: -4.620877}
-  m_LocalScale: {x: 16.478342, y: 16.478338, z: 16.478338}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 33, y: 33, z: 33}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -147,10 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedTag: HemisphereUV
-  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
   glowDuration: 1.5
   popScale: 1.2
   popDuration: 0.3
   shakeDuration: 0.4
   shakeIntensity: 0.1
   isSolved: 0
+  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 7f93e5a0df31c3845abee9873420d355, type: 2}

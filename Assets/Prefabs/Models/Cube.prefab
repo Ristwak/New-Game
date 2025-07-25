@@ -147,10 +147,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   expectedTag: CubeUV
-  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
   glowDuration: 1.5
   popScale: 1.2
   popDuration: 0.3
   shakeDuration: 0.4
   shakeIntensity: 0.1
   isSolved: 0
+  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 7f93e5a0df31c3845abee9873420d355, type: 2}
