@@ -5,6 +5,24 @@ TagManager:
   serializedVersion: 2
   tags:
   - CorrectNet
+  - ConeUV
+  - CubeUV
+  - CuboidUV
+  - CylinderUV
+  - DodecahedronUV
+  - FrustumofConeUV
+  - FrustumofPyramidUV
+  - HemisphereUV
+  - HexagonalUV
+  - IcosahedronUV
+  - OctahedronUV
+  - PentagonalPyramidUV
+  - PentagonalPrismUV
+  - SphereUV
+  - SquarePyramidUV
+  - Torus
+  - TriangularPyramidUV
+  - TriangularPrismUV
   layers:
   - Default
   - TransparentFX

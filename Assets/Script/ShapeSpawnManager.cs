@@ -11,6 +11,7 @@ public class ShapeSpawnManager : MonoBehaviour
     public float minSpawnDistance = 1.5f;
     public float maxSpawnDistance = 3f;
     public Transform playerTransform;
+    
 
     private List<GameObject> spawnedShapes = new List<GameObject>();
     private List<GameObject> remainingShapes = new List<GameObject>();

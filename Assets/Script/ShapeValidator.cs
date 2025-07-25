@@ -3,8 +3,7 @@ using UnityEngine;
 public class ShapeValidator : MonoBehaviour
 {
     [Header("Validation")]
-    public GameObject expectedNetObject; // The matching unfolded net for this shape
-    public string expectedTag = "CorrectNet"; // Optional: tag-based check
+    public string expectedTag = "CorrectNet";
 
     [Header("Feedback")]
     public Material glowMaterial;
@@ -31,10 +30,9 @@ public class ShapeValidator : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (isAnimating) return;
+        Debug.Log(other.gameObject.layer);
 
-        bool isCorrect =
-            (expectedNetObject != null && other.gameObject == expectedNetObject) ||
-            (!string.IsNullOrEmpty(expectedTag) && other.CompareTag(expectedTag));
+        bool isCorrect = other.CompareTag(expectedTag);
 
         if (isCorrect)
         {
