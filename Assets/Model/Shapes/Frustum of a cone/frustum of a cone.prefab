@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4390580022525979261}
   - component: {fileID: -7677804609368791511}
   m_Layer: 0
-  m_Name: frustum of a cone
+  m_Name: Frustum of a cone
   m_TagString: CorrectNet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

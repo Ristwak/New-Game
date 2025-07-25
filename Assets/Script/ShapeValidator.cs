@@ -13,11 +13,13 @@ public class ShapeValidator : MonoBehaviour
     public float popDuration = 0.3f;
     public float shakeDuration = 0.4f;
     public float shakeIntensity = 0.1f;
+    public bool isSolved = false;
 
     private Material originalMaterial;
     private Renderer rend;
     private Vector3 originalScale;
     private bool isAnimating = false;
+
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class ShapeValidator : MonoBehaviour
         if (isCorrect)
         {
             Destroy(other.gameObject);
+            isSolved = true;
             StartCoroutine(GlowAndPop());
         }
         else

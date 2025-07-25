@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3911962298140916068
 Transform:
   m_ObjectHideFlags: 0
@@ -154,3 +154,4 @@ MonoBehaviour:
   popDuration: 0.3
   shakeDuration: 0.4
   shakeIntensity: 0.1
+  isSolved: 0
