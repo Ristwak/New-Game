@@ -4,14 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Panels")]
     public GameObject homePanel;
     public GameObject optionPanel;
     public GameObject aboutPanel;
     public GameObject loadingPanel;
 
+    [Header("light")]
+    public Light pointLight;
+
     // Start is called before the first frame update
     void Start()
     {
+        pointLight.gameObject.SetActive(true);
         homePanel.SetActive(true);
         aboutPanel.SetActive(false);
         loadingPanel.SetActive(false);
@@ -21,8 +26,7 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         optionPanel.SetActive(true);
-        // loadingPanel.SetActive(true);
-        // SceneManager.LoadScene("AnimalCell");
+        pointLight.gameObject.SetActive(false);
         homePanel.SetActive(false);
         aboutPanel.SetActive(false);
         // Load the first scene or start the game logic
@@ -31,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     public void OnOpionSelect(string sceneName)
     {
+        pointLight.gameObject.SetActive(false);
         loadingPanel.SetActive(true);
         homePanel.SetActive(false);
         optionPanel.SetActive(false);
@@ -49,12 +54,14 @@ public class GameManager : MonoBehaviour
 
     public void AboutButton()
     {
+        pointLight.gameObject.SetActive(false);
         homePanel.SetActive(false);
         aboutPanel.SetActive(true);
     }
 
     public void BackButton()
     {
+        pointLight.gameObject.SetActive(true);
         aboutPanel.SetActive(false);
         homePanel.SetActive(true);
     }
