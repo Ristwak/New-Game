@@ -69,7 +69,7 @@ public class ShapeSpawnManager : MonoBehaviour
 
             int index = Random.Range(0, remainingShapes.Count);
             GameObject prefab = remainingShapes[index];
-            GameObject shape = Instantiate(prefab, freeSpot.position, freeSpot.rotation);
+            GameObject shape = Instantiate(prefab, freeSpot.position, prefab.transform.rotation);
             shape.name = prefab.name;
 
             // Attach reference to assigned spawn point (optional)
@@ -81,6 +81,32 @@ public class ShapeSpawnManager : MonoBehaviour
             remainingShapes.RemoveAt(index);
             spawnPointStatus[freeSpot] = true;
         }
+    }
+
+    public GameObject SpawnNextShape()
+    {
+        Transform freeSpot = GetFreeSpawnPoint();
+        if (freeSpot == null || remainingShapes.Count == 0)
+        {
+            Debug.LogWarning("❗ Cannot spawn: No free spots or no shapes left.");
+            return null;
+        }
+
+        int index = Random.Range(0, remainingShapes.Count);
+        GameObject prefab = remainingShapes[index];
+        GameObject shape = Instantiate(prefab, freeSpot.position, prefab.transform.rotation);
+        shape.name = prefab.name;
+
+        // Assign spawn point
+        ShapeValidator validator = shape.GetComponent<ShapeValidator>();
+        if (validator != null)
+            validator.assignedSpawnPoint = freeSpot;
+
+        spawnedShapes.Add(shape);
+        remainingShapes.RemoveAt(index);
+        spawnPointStatus[freeSpot] = true;
+
+        return shape;
     }
 
     Transform GetFreeSpawnPoint()
