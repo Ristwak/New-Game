@@ -4,6 +4,7 @@ public class ShapeValidator : MonoBehaviour
 {
     [Header("Validation")]
     public string expectedTag = "CorrectNet";
+    public Transform assignedSpawnPoint;
 
     [Header("Feedback")]
     public float glowDuration = 1.5f;
@@ -40,7 +41,7 @@ public class ShapeValidator : MonoBehaviour
         if (isCorrect)
         {
             Destroy(other.gameObject);
-            isSolved = true;
+            // isSolved = true;
             StartCoroutine(GlowAndPop());
         }
         else
@@ -66,14 +67,16 @@ public class ShapeValidator : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+        // Set to permanent green
+        rend.material = greenMaterial;
 
         // Wait for glow to finish
         yield return new WaitForSeconds(glowDuration);
 
-        // Set to permanent green
-        rend.material = greenMaterial;
+        Destroy(gameObject);
 
         isAnimating = false;
+        isSolved = true;
     }
 
     System.Collections.IEnumerator ShakeAndShrink()

@@ -8,24 +8,28 @@ public class ShapeSpawnManager : MonoBehaviour
 
     [Header("Spawn Settings")]
     public int initialSpawnCount = 3;
-    public float minSpawnDistance = 1.5f;
-    public float maxSpawnDistance = 3f;
-    public Transform playerTransform;
-    
+    public List<Transform> spawnPoints; // Set these in Inspector manually
 
     private List<GameObject> spawnedShapes = new List<GameObject>();
     private List<GameObject> remainingShapes = new List<GameObject>();
+    private Dictionary<Transform, bool> spawnPointStatus = new Dictionary<Transform, bool>();
     private int solvedCount = 0;
 
     void Start()
     {
+        // Initialize available shapes and spawn point availability
         remainingShapes = new List<GameObject>(shapePrefabs);
+
+        foreach (var point in spawnPoints)
+        {
+            spawnPointStatus[point] = false; // All spawn points start as free
+        }
+
         SpawnShapes(initialSpawnCount);
     }
 
     void Update()
     {
-        // Check each currently spawned shape to see if it's solved
         for (int i = spawnedShapes.Count - 1; i >= 0; i--)
         {
             ShapeValidator validator = spawnedShapes[i].GetComponent<ShapeValidator>();
@@ -33,13 +37,16 @@ public class ShapeSpawnManager : MonoBehaviour
             {
                 solvedCount++;
 
-                // Destroy(spawnedShapes[i]); // Clean up solved shape
+                // Mark spawn point as free again
+                Transform spawnPoint = validator.assignedSpawnPoint;
+                if (spawnPoint != null)
+                    spawnPointStatus[spawnPoint] = false;
+
                 spawnedShapes.RemoveAt(i);
 
-                // Spawn 2 new shapes immediately
-                SpawnShapes(2);
+                // Spawn 1 new shape only
+                SpawnShapes(1);
 
-                // Check for game completion
                 if (remainingShapes.Count == 0 && spawnedShapes.Count == 0)
                 {
                     Debug.Log("✅ Game Completed!");
@@ -53,24 +60,39 @@ public class ShapeSpawnManager : MonoBehaviour
     {
         for (int i = 0; i < count && remainingShapes.Count > 0; i++)
         {
+            Transform freeSpot = GetFreeSpawnPoint();
+            if (freeSpot == null)
+            {
+                Debug.LogWarning("❗ No available spawn points.");
+                return;
+            }
+
             int index = Random.Range(0, remainingShapes.Count);
             GameObject prefab = remainingShapes[index];
-
-            Vector3 spawnPos = RandomPositionInRoom();
-            GameObject shape = Instantiate(prefab, spawnPos, Quaternion.identity);
+            GameObject shape = Instantiate(prefab, freeSpot.position, freeSpot.rotation);
             shape.name = prefab.name;
-            spawnedShapes.Add(shape);
 
+            // Attach reference to assigned spawn point (optional)
+            ShapeValidator validator = shape.GetComponent<ShapeValidator>();
+            if (validator != null)
+                validator.assignedSpawnPoint = freeSpot;
+
+            spawnedShapes.Add(shape);
             remainingShapes.RemoveAt(index);
+            spawnPointStatus[freeSpot] = true;
         }
     }
 
-    Vector3 RandomPositionInRoom()
+    Transform GetFreeSpawnPoint()
     {
-        Vector2 randomCircle = Random.insideUnitCircle.normalized * Random.Range(minSpawnDistance, maxSpawnDistance);
-        Vector3 offset = new Vector3(randomCircle.x, 0f, randomCircle.y);
-        Vector3 position = playerTransform.position + offset;
-        position.y = 0.5f; // Adjust height based on shape prefab
-        return position;
+        List<Transform> freePoints = new List<Transform>();
+        foreach (var kvp in spawnPointStatus)
+        {
+            if (!kvp.Value)
+                freePoints.Add(kvp.Key);
+        }
+
+        if (freePoints.Count == 0) return null;
+        return freePoints[Random.Range(0, freePoints.Count)];
     }
 }
