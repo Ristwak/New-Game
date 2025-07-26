@@ -9,17 +9,9 @@ public class MainGameManager : MonoBehaviour
     public GameObject loadingScreen;
     public GameObject gameOverPanel;
 
-    private void Start()
-    {
-        homeUI.enabled = false;
-
-    }
 
     public void ShowGameOverScreen()
     {
-        if (homeUI != null)
-            homeUI.enabled = true;
-
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 

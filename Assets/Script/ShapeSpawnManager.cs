@@ -5,6 +5,7 @@ public class ShapeSpawnManager : MonoBehaviour
 {
     [Header("Shape Prefabs")]
     public List<GameObject> shapePrefabs;
+    // public float spawnObjectTime = 60f;
 
     [Header("Spawn Settings")]
     public int initialSpawnCount = 3;
@@ -26,6 +27,20 @@ public class ShapeSpawnManager : MonoBehaviour
         }
 
         SpawnShapes(initialSpawnCount);
+    }
+
+    public void Init()
+    {
+        remainingShapes = new List<GameObject>(shapePrefabs);
+
+        spawnPointStatus.Clear();
+        foreach (var point in spawnPoints)
+        {
+            spawnPointStatus[point] = false;
+        }
+
+        spawnedShapes.Clear();
+        solvedCount = 0;
     }
 
     void Update()
@@ -83,21 +98,25 @@ public class ShapeSpawnManager : MonoBehaviour
         }
     }
 
+    public bool IsEmpty()
+    {
+        return remainingShapes.Count == 0 && spawnedShapes.Count == 0;
+    }
+
     public GameObject SpawnNextShape()
     {
+        // Pick one from the list and spawn if a spawn point is free
         Transform freeSpot = GetFreeSpawnPoint();
         if (freeSpot == null || remainingShapes.Count == 0)
-        {
-            Debug.LogWarning("❗ Cannot spawn: No free spots or no shapes left.");
             return null;
-        }
 
         int index = Random.Range(0, remainingShapes.Count);
         GameObject prefab = remainingShapes[index];
         GameObject shape = Instantiate(prefab, freeSpot.position, prefab.transform.rotation);
         shape.name = prefab.name;
 
-        // Assign spawn point
+        // ShapeGameManager.Instance.Countdown(spawnObjectTime);
+
         ShapeValidator validator = shape.GetComponent<ShapeValidator>();
         if (validator != null)
             validator.assignedSpawnPoint = freeSpot;

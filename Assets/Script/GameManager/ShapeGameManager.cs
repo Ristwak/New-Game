@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ShapeGameManager : MonoBehaviour
 {
+    public static ShapeGameManager Instance;
+
     [Header("Managers")]
     public ShapeSpawnManager spawnManager;
 
@@ -16,80 +17,107 @@ public class ShapeGameManager : MonoBehaviour
     public TMP_Text timerText;
     public TMP_Text scoreText;
 
-    private Queue<ShapeTracker> activeShapes = new Queue<ShapeTracker>();
+    public Queue<ShapeTracker> activeShapes = new Queue<ShapeTracker>();
     private int score = 0;
+
+    void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
-        StartCoroutine(SpawnAndTrack());
+        spawnManager.Init();
+
+        // Spawn initial 3 shapes
+        for (int i = 0; i < 3; i++)
+        {
+            GameObject shape = spawnManager.SpawnNextShape();
+            if (shape == null) break;
+
+            ShapeTracker tracker = shape.AddComponent<ShapeTracker>();
+            tracker.validator = shape.GetComponent<ShapeValidator>();
+            tracker.spawnTime = Time.time;
+            activeShapes.Enqueue(tracker);
+        }
+
+        StartCoroutine(ProcessQueue());
     }
 
     void Update()
     {
-        // Update score UI
         if (scoreText != null)
             scoreText.text = "Score: " + score;
     }
 
-    IEnumerator SpawnAndTrack()
+    IEnumerator ProcessQueue()
     {
-        while (spawnManager != null)
+        while (true)
         {
-            // Wait for shape to be spawned
-            GameObject newShape = spawnManager.SpawnNextShape();
-            if (newShape == null) yield break;
+            // Wait until there is at least one active shape
+            while (activeShapes.Count == 0)
+                yield return null;
 
-            ShapeTracker tracker = newShape.AddComponent<ShapeTracker>();
-            tracker.validator = newShape.GetComponent<ShapeValidator>();
-            tracker.spawnTime = Time.time;
-            activeShapes.Enqueue(tracker);
+            ShapeTracker current = activeShapes.Peek();
+            float endTime = Time.time + timePerShape;
 
-            StartCoroutine(StartShapeTimer(tracker));
+            bool shapeSolvedOrExpired = false;
 
-            yield return new WaitForSeconds(3f); // Wait before allowing next spawn (optional pacing)
-        }
-    }
-
-    IEnumerator StartShapeTimer(ShapeTracker tracker)
-    {
-        float startTime = Time.time;
-
-        while (Time.time - startTime < timePerShape)
-        {
-            // Show remaining time only for the first shape
-            if (activeShapes.Count > 0 && activeShapes.Peek() == tracker)
+            while (!shapeSolvedOrExpired)
             {
-                float remaining = timePerShape - (Time.time - startTime);
+                float remaining = endTime - Time.time;
+                remaining = Mathf.Clamp(remaining, 0f, timePerShape);
+
+                int minutes = Mathf.FloorToInt(remaining / 60f);
+                int seconds = Mathf.FloorToInt(remaining % 60f);
+
                 if (timerText != null)
-                    timerText.text = "Time Left: " + Mathf.CeilToInt(remaining) + "s";
+                    timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+                if (current.validator != null && current.validator.isSolved)
+                {
+                    score += 10;
+                    activeShapes.Dequeue();
+                    yield return SpawnNewShape();
+                    shapeSolvedOrExpired = true;
+                    break;
+                }
+
+                if (Time.time >= endTime)
+                {
+                    Debug.Log("⏱️ Time up: " + current.name);
+                    Destroy(current.gameObject);
+                    activeShapes.Dequeue();
+                    yield return SpawnNewShape();
+                    shapeSolvedOrExpired = true;
+                    break;
+                }
+
+                yield return null;
             }
 
-            if (tracker.validator != null && tracker.validator.isSolved)
+            // Exit condition: game ends when there are no more shapes to track or spawn
+            if (activeShapes.Count == 0 && spawnManager.IsEmpty())
             {
-                score += 10; // Add score for correct
-                RemoveAndSpawnNext(tracker);
-                yield break;
+                timerText.text = "00:00";
+                Debug.Log("✅ All shapes completed!");
+                break;
             }
-
-            yield return null;
-        }
-
-        // Time expired — if still unsolved
-        if (tracker.validator != null && !tracker.validator.isSolved)
-        {
-            Debug.Log("⏱️ Time up for: " + tracker.gameObject.name);
-            Destroy(tracker.gameObject);
-            RemoveAndSpawnNext(tracker);
         }
     }
 
-    void RemoveAndSpawnNext(ShapeTracker tracker)
+    IEnumerator SpawnNewShape()
     {
-        if (activeShapes.Contains(tracker))
+        GameObject newShape = spawnManager.SpawnNextShape();
+        if (newShape != null)
         {
-            activeShapes.Dequeue(); // Remove the oldest tracked shape
-            StartCoroutine(SpawnAndTrack()); // Trigger next spawn
+            ShapeTracker newTracker = newShape.AddComponent<ShapeTracker>();
+            newTracker.validator = newShape.GetComponent<ShapeValidator>();
+            newTracker.spawnTime = Time.time;
+            activeShapes.Enqueue(newTracker);
         }
+
+        yield return null;
     }
 }
 
