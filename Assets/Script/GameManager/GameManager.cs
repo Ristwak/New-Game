@@ -25,7 +25,9 @@ public class GameManager : MonoBehaviour
 
     public void StartButton()
     {
-        optionPanel.SetActive(true);
+        // optionPanel.SetActive(true);
+        loadingPanel.SetActive(true);
+        SceneManager.LoadScene("ShapeScape");
         pointLight.gameObject.SetActive(false);
         homePanel.SetActive(false);
         aboutPanel.SetActive(false);

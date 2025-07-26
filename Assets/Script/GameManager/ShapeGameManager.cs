@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,8 @@ public class ShapeGameManager : MonoBehaviour
     public float timePerShape = 60f;
 
     [Header("UI")]
-    public Text timerText;
-    public Text scoreText;
+    public TMP_Text timerText;
+    public TMP_Text scoreText;
 
     private Queue<ShapeTracker> activeShapes = new Queue<ShapeTracker>();
     private int score = 0;
