@@ -1,58 +1,46 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainGameManager : MonoBehaviour
 {
-    public GameObject table;
-    public GameObject cell;
-    public Canvas gameCanvas1;
-    public Canvas gameCanvas2;
-    public Canvas homeUi;
+    [Header("UI References")]
+    public Canvas homeUI;
     public GameObject loadingScreen;
     public GameObject gameOverPanel;
 
     private void Start()
     {
-        homeUi.enabled = false;
-        gameCanvas1.enabled = true;
-        gameCanvas2.enabled = true;
+        homeUI.enabled = false;
+
     }
 
-    public void DeactivateGameObjects()
+    public void ShowGameOverScreen()
     {
-        if (table != null)
-        {
-            table.SetActive(false);
-        }
-        if (cell != null)
-        {
-            cell.SetActive(false);
-        }
-        if (gameCanvas1 != null && gameCanvas2 != null)
-        {
-            gameCanvas1.enabled = false;
-            gameCanvas2.enabled = false;
-        }
-        if (homeUi != null)
-        {
-            homeUi.enabled = true;
+        if (homeUI != null)
+            homeUI.enabled = true;
+
+        if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
+
+        if (loadingScreen != null)
             loadingScreen.SetActive(false);
-        }
     }
 
     public void Retry()
     {
-        gameOverPanel.SetActive(false);
-        loadingScreen.SetActive(true);
-        SceneManager.LoadScene("HomeScene");
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+
+        if (loadingScreen != null)
+            loadingScreen.SetActive(true);
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Quit()
     {
+        Debug.Log("Quitting the game...");
         Application.Quit();
-        Debug.Log("Game is quitting...");
     }
 }

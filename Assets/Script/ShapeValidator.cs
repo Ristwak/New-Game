@@ -7,7 +7,7 @@ public class ShapeValidator : MonoBehaviour
     public Transform assignedSpawnPoint;
 
     [Header("Feedback")]
-    public float glowDuration = 1.5f;
+    public float glowDuration = 0.5f;
     public float popScale = 1.2f;
     public float popDuration = 0.3f;
     public float shakeDuration = 0.4f;
@@ -73,7 +73,7 @@ public class ShapeValidator : MonoBehaviour
         // Wait for glow to finish
         yield return new WaitForSeconds(glowDuration);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
 
         isAnimating = false;
         isSolved = true;
