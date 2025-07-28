@@ -73,3 +73,8 @@ This project is for educational and non-commercial use. All rights reserved to R
 
 Created by a Ristwak Pandey to make STEM education immersive and playful through VR.
 
+## 📽️ Gameplay Video
+
+
+https://github.com/user-attachments/assets/21eaab3d-8083-4826-9cb0-cf3f4c05fbfe
+
