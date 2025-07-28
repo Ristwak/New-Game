@@ -71,5 +71,5 @@ This project is for educational and non-commercial use. All rights reserved to R
 
 ## 👨‍🏫 Credits
 
-Created by a dedicated team to make STEM education immersive and playful through VR.
+Created by a Ristwak Pandey to make STEM education immersive and playful through VR.
 
