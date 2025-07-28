@@ -27,7 +27,7 @@ public class MainGameManager : MonoBehaviour
         if (loadingScreen != null)
             loadingScreen.SetActive(true);
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("HomeScene");
     }
 
     public void Quit()

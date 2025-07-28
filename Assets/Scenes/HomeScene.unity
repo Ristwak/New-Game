@@ -1155,7 +1155,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0, y: 0}
-  m_SizeDelta: {x: 0, y: 65.26}
+  m_SizeDelta: {x: 0, y: 125.6}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &666432079
 GameObject:
@@ -1369,7 +1369,7 @@ GameObject:
   - component: {fileID: 730332680}
   - component: {fileID: 730332679}
   m_Layer: 0
-  m_Name: Point Light
+  m_Name: BoardLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1386,8 +1386,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 2.2
+  m_Color: {r: 0.7629819, g: 0.7735849, b: 0.2729441, a: 1}
+  m_Intensity: 7
   m_Range: 10
   m_SpotAngle: 110
   m_InnerSpotAngle: 1
@@ -1858,7 +1858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 943961622}
   selectedDirection: 1
 --- !u!114 &943961621
 MonoBehaviour:
@@ -1873,8 +1873,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  cameraTransform: {fileID: 0}
+  cameraTransform: {fileID: 943961622}
   selectedDirection: 0
+--- !u!4 &943961622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7990873191231833676, guid: 5eccbf4be2c00e94689ee8062e4e7276, type: 3}
+  m_PrefabInstance: {fileID: 943961617}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1015577598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,19 +2204,24 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "<b>About the Game \u2013 ShapeScape</b>\n\nShapeScape is an immersive
-    VR puzzle game designed to make learning math fun, visual, and interactive. In
-    this game, players explore 3D environments where they must match unfolded 2D
-    nets (UVs) to their correct 3D shapes \u2014 helping reinforce spatial reasoning
-    and geometric understanding.\n\nOnce a shape is correctly placed, it glows and
-    transforms with satisfying animations. But that's not all \u2014 the adventure
-    continues with formula-based challenges in upcoming levels, combining logic,
-    memory, and visual learning.\n\n<b>Key Features</b>\n\n\u2022 Shape Folding:
-    Place 2D nets to form 3D objects\n\u2022 Geometry Meets Logic: Practice with
-    real math shapes and structures\n\u2022 Instant Feedback: Animations and effects
-    when answers are right or wrong\n\u2022 Auto-Correction: Misplaced shapes return
-    to their original spots\n\u2022 VR Interaction: Grab, rotate, and place with
-    your virtual hands\n\n<b>Whether you're a student or just love puzzles, ShapeScape
-    is a creative blend of math and imagination.</b>\n\n"
+    VR puzzle game designed to make learning math fun, visual, and interactive. Set
+    in a stylized virtual classroom, players explore 3D environments where they must
+    match unfolded 2D nets (UVs) to their correct 3D shapes \u2014 reinforcing spatial
+    reasoning, geometry, and critical thinking.\n\nOnce a shape is placed correctly,
+    it glows and transforms with satisfying visual feedback. But the experience doesn't
+    stop there \u2014 future levels introduce formula-based challenges and time-based
+    tasks that combine logic, memory, and visual learning for a complete STEM journey.\n\n<b>Key
+    Features</b>\n\n\u2022 Shape Folding: Place accurate 2D nets to build real 3D
+    mathematical shapes\n\u2022 Geometry Meets Logic: Practice with curriculum-based
+    shapes like cones, prisms, pyramids, and more\n\u2022 Instant Feedback: Watch
+    the shape animate and glow when placed correctly\n\u2022 Auto-Correction: Misplaced
+    shapes smoothly return to their original positions\n\u2022 Timed Gameplay: The
+    entire game must be completed within 5 minutes, adding urgency and pacing to
+    the experience\n\u2022 VR Controls:\n\u2003- Left Thumbstick \u2192 Move the
+    player forward\n\u2003- Right Thumbstick \u2192 Move the player backward\n\n<b>Why
+    Play?</b>\n\nWhether you're a student, a teacher, or a puzzle lover, ShapeScape
+    is a unique blend of education and immersive VR gameplay \u2014 turning abstract
+    math into something you can touch, move, and understand."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2763,6 +2773,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 245447488647723021, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 617196501029636240, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1593663630677967407, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1665086439591525202, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3163,6 +3185,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3504686930648418126, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3577373069027180083, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3435,6 +3461,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5104414499218760261, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5236134093734043747, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5334321970912086355, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3471,6 +3505,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5702676837140185464, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5792943554966885959, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3491,6 +3529,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5827434552954677727, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5926282773944334917, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3529,6 +3571,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6038140844522691577, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202795244621264029, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6284219111878799713, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6614412807648090488, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
@@ -3646,7 +3696,7 @@ PrefabInstance:
     - target: {fileID: 7143353886403648717, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_GestureEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 943961620}
+      objectReference: {fileID: 943961621}
     - target: {fileID: 7143353886403648717, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_GesturePerformed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
@@ -3658,7 +3708,7 @@ PrefabInstance:
     - target: {fileID: 7143353886403648717, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_GesturePerformed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 943961620}
+      objectReference: {fileID: 943961621}
     - target: {fileID: 7143353886403648717, guid: 12e7c6e2a052ca344a4b1b5616e1597c, type: 3}
       propertyPath: m_GesturePerformed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: MovePlayer
@@ -4157,7 +4207,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639722169}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -1.81}
+  m_LocalPosition: {x: 0, y: 0, z: -1.865}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4529,6 +4579,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1111378574499670772, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1121738417032852966, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1417439321683967456, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
       propertyPath: m_Name
       value: Lights
@@ -4574,12 +4632,36 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1723372970434734482, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
-      propertyPath: m_Range
-      value: 3.14
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3621143760627002509, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4868666560138111253, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
-      propertyPath: m_Range
-      value: 3.14
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280205647359415158, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432405560670574812, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774547224483742560, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434038436339356057, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090293839685960471, guid: 20669ac19c3e13747834cf163cf29363, type: 3}
+      propertyPath: m_Intensity
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4854,6 +4936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Directional Light
       objectReference: {fileID: 0}
+    - target: {fileID: 7022471856583329006, guid: 09dca14639d362846bef4c0e84d7bf83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4864,11 +4950,11 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 5807158469248015201}
+  - {fileID: 1948773448}
+  - {fileID: 730332680}
   - {fileID: 943961617}
   - {fileID: 404300013}
   - {fileID: 1639722170}
   - {fileID: 1620422805}
   - {fileID: 666432080}
-  - {fileID: 730332680}
-  - {fileID: 1948773448}
   - {fileID: 1434779452}

@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 5873765532399831797}
   - component: {fileID: 1121738417032852966}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 213584037988620607}
   - component: {fileID: 7434038436339356057}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1284836507534762235}
   - component: {fileID: 1723372970434734482}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -363,7 +363,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.8415094, g: 0.82893735, b: 0.67797077, a: 1}
   m_Intensity: 3.11
-  m_Range: 7.8
+  m_Range: 3.14
   m_SpotAngle: 84
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 8722061922687812719}
   - component: {fileID: 4868666560138111253}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,7 +739,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.8415094, g: 0.82893735, b: 0.67797077, a: 1}
   m_Intensity: 3.11
-  m_Range: 7.8
+  m_Range: 3.14
   m_SpotAngle: 84
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 5488430313779654726}
   - component: {fileID: 5774547224483742560}
   m_Layer: 0
-  m_Name: Point Light (1)
+  m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
