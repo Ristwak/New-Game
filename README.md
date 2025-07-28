@@ -67,7 +67,7 @@ To run the game:
 
 ## 📚 License
 
-This project is for educational and non-commercial use. All rights reserved to the development team and contributors.
+This project is for educational and non-commercial use. All rights reserved to Ristwak Pandey.
 
 ## 👨‍🏫 Credits
 
