@@ -888,6 +888,7 @@ MonoBehaviour:
   - {fileID: 4737644796756068789, guid: 69aabd766d362f64f92bbf9769510ef1, type: 3}
   - {fileID: 2419372712233527618, guid: 5e3cf3f5edcd8c64ca250c30904b1906, type: 3}
   - {fileID: 2311778232811119799, guid: 4b36c8103e7a4c241b10ca4ff043d2a0, type: 3}
+  - {fileID: 3804092198497325030, guid: e99b6ec61f4ff5d4c8ab00caa584f2c4, type: 3}
   spawnPoints:
   - {fileID: 1988699297}
   - {fileID: 1399050790}
