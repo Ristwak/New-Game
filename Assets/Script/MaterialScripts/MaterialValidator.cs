@@ -21,6 +21,7 @@ public class MaterialValidator : MonoBehaviour
     private Renderer rend;
     private Vector3 originalScale;
     private bool isAnimating = false;
+    private Transform lastDropBoxTransform;
 
     public Transform assignedSpawnPoint;
 
@@ -39,10 +40,9 @@ public class MaterialValidator : MonoBehaviour
         if (dropBox == null) return;
 
         bool isCorrect = dropBox.acceptedType == typeOfMaterial;
-
         if (isCorrect)
         {
-            Debug.Log("✅ Correct material placed: " + gameObject.name);
+            lastDropBoxTransform = dropBox.transform; // Save drop target
             StartCoroutine(GlowAndPop());
         }
         else
@@ -57,6 +57,7 @@ public class MaterialValidator : MonoBehaviour
         isAnimating = true;
         rend.material = glowMaterial;
 
+        // Pop animation
         Vector3 targetScale = originalScale * popScale;
         float t = 0f;
         while (t < popDuration)
@@ -68,13 +69,34 @@ public class MaterialValidator : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+
+        // Set to permanent green
         rend.material = greenMaterial;
+
+        // Wait for glow duration
         yield return new WaitForSeconds(glowDuration);
 
-        gameObject.SetActive(false);
+        // Disable interaction and physics
+        var grab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+        if (grab != null)
+            grab.enabled = false;
 
-        isAnimating = false;
+        var rb = GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+        }
+
+        // Snap the material into the drop box
+        if (lastDropBoxTransform != null)
+        {
+            transform.SetParent(lastDropBoxTransform); // So it moves with the box if needed
+            transform.localPosition = GetNextAvailableSpot(lastDropBoxTransform);
+        }
+
         isSolved = true;
+        isAnimating = false;
     }
 
     System.Collections.IEnumerator ShakeAndShrink()
@@ -106,6 +128,13 @@ public class MaterialValidator : MonoBehaviour
         transform.localScale = originalScale;
         ResetIfMisplaced.instance.ResetToOriginalPosition();
         isAnimating = false;
+    }
+
+    private Vector3 GetNextAvailableSpot(Transform box)
+    {
+        int count = box.childCount;
+        float offsetY = 0.1f; // Adjust spacing
+        return new Vector3(0, offsetY * count, 0);
     }
 }
 
