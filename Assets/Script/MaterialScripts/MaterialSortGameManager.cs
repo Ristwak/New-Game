@@ -12,9 +12,11 @@ public class MaterialSortGameManager : MonoBehaviour
     [Header("Timing and Score Settings")]
     public float totalGameTime = 300f; // Set your total game time here
     public float profitPoints = 10;
+    public int shapesToSpawnInStart = 2;
 
     [Header("UI")]
     public GameObject timerPanel;
+    public TMP_Text nameText;
     public TMP_Text timerText;
     public GameObject scorePanel;
     public TMP_Text scoreText;
@@ -39,7 +41,7 @@ public class MaterialSortGameManager : MonoBehaviour
         spawnManager.Init();
 
         // Spawn initial shapes (e.g. 3 to begin)
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < shapesToSpawnInStart; i++)
         {
             SpawnNewShape();
         }
@@ -112,6 +114,12 @@ public class MaterialSortGameManager : MonoBehaviour
             tracker.validator = shape.GetComponent<MaterialValidator>();
             tracker.spawnTime = Time.time;
             activeShapes.Add(tracker);
+
+            // ✅ Show the name of the newly spawned material on UI
+            if (nameText != null && tracker.validator != null)
+            {
+                nameText.text = "Spawned: " + tracker.validator.materialName;
+            }
         }
     }
 
