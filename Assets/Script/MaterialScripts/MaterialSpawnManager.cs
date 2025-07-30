@@ -49,6 +49,7 @@ public class MaterialSpawnManager : MonoBehaviour
         spawnPointStatus[freeSpot] = true;
 
         Debug.Log("🟩 Spawned: " + shape.name + " at " + freeSpot.name);
+        MaterialSortGameManager.Instance.nameText.text = shape.name.ToString();
         return shape;
     }
 

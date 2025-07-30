@@ -114,12 +114,6 @@ public class MaterialSortGameManager : MonoBehaviour
             tracker.validator = shape.GetComponent<MaterialValidator>();
             tracker.spawnTime = Time.time;
             activeShapes.Add(tracker);
-
-            // ✅ Show the name of the newly spawned material on UI
-            if (nameText != null && tracker.validator != null)
-            {
-                nameText.text = tracker.validator.materialName;
-            }
         }
     }
 
