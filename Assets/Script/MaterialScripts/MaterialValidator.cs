@@ -104,6 +104,7 @@ public class MaterialValidator : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+        ResetIfMisplaced.instance.ResetToOriginalPosition();
         isAnimating = false;
     }
 }

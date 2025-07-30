@@ -3,12 +3,18 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ResetIfMisplaced : MonoBehaviour
 {
-    private Vector3 originalPosition;
-    private Quaternion originalRotation;
+    public static ResetIfMisplaced instance;
+    public Vector3 originalPosition;
+    public Quaternion originalRotation;
     private XRGrabInteractable grabInteractable;
     private Rigidbody rb;
 
     private bool isBeingHeld = false;
+
+    void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -39,7 +45,7 @@ public class ResetIfMisplaced : MonoBehaviour
         }
     }
 
-    private void ResetToOriginalPosition()
+    public void ResetToOriginalPosition()
     {
         rb.velocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
