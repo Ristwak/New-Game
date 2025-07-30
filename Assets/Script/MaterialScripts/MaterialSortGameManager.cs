@@ -118,7 +118,9 @@ public class MaterialSortGameManager : MonoBehaviour
             // ✅ Show the name of the newly spawned material on UI
             if (nameText != null && tracker.validator != null)
             {
-                nameText.text = "Spawned: " + tracker.validator.materialName;
+                nameText.text = tracker.validator.materialName.ToString();
+                Debug.Log("Tracker name 1 " +tracker.validator.ToString());
+                Debug.Log("Tracker name 2 " +tracker.validator.materialName.ToString());
             }
         }
     }
