@@ -109,7 +109,7 @@ public class MaterialSortGameManager : MonoBehaviour
         if (shape != null)
         {
             MaterialsTracker tracker = shape.AddComponent<MaterialsTracker>();
-            tracker.validator = shape.GetComponent<ShapeValidator>();
+            tracker.validator = shape.GetComponent<MaterialValidator>();
             tracker.spawnTime = Time.time;
             activeShapes.Add(tracker);
         }
@@ -136,7 +136,7 @@ public class MaterialSortGameManager : MonoBehaviour
 
 public class MaterialsTracker : MonoBehaviour
 {
-    public ShapeValidator validator;
+    public MaterialValidator validator;
     public float spawnTime;
     public bool hasScored = false;
 }

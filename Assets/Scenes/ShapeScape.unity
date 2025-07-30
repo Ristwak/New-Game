@@ -495,7 +495,7 @@ GameObject:
   - component: {fileID: 466002374}
   - component: {fileID: 466002373}
   m_Layer: 0
-  m_Name: ShapeGameManager
+  m_Name: MaterialGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 844533989}
   - component: {fileID: 844533988}
   m_Layer: 0
-  m_Name: ShapeSpawnManager
+  m_Name: MaterialSpawnManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -702,28 +702,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 844533987}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b70d1a9c60168248b1b00b424332cd9, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c910c2eddeca334ab3200055ffc2f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapePrefabs:
-  - {fileID: 7345924025196327195, guid: abb4c4e3dd8e6dc44aa073ff26b7a988, type: 3}
-  - {fileID: 6557714629839376548, guid: 3b2a0d6c6e3ca41489b47d57a7235f90, type: 3}
-  - {fileID: 1988946546010811543, guid: 69dee08a1862dd943a4de4401295e372, type: 3}
-  - {fileID: 4622585602918958163, guid: 07e1c14c401490949a4d25f9d91f90dd, type: 3}
-  - {fileID: 2276460040675268027, guid: 36cc39c9cc4cb344d877984282b20733, type: 3}
-  - {fileID: 2959778723461127274, guid: 3f67a01d47c06b842a0fa874afa19d7e, type: 3}
-  - {fileID: 4144053554871505469, guid: b72b178d6f3c80c4b9c1b39bcbbf3b3c, type: 3}
-  - {fileID: 5320072063768505215, guid: 4bf31bcf472a11e429e89098416224e4, type: 3}
-  - {fileID: 3936604762339875980, guid: 93c69e71ea1c7104c98110ba56bad1f0, type: 3}
-  - {fileID: 5638666080048119365, guid: e95d6416c33e82b458152b480731f83c, type: 3}
-  - {fileID: 6561151637585966496, guid: 8cd91b0bc24398c4e8a3fa753299b427, type: 3}
-  - {fileID: 4197124281966036714, guid: d5edb37c28f2d774cb0c0fcb69374e47, type: 3}
-  - {fileID: 7763478304608341634, guid: 1ad8bed9cc76a5e48adc2898b1b7fc0e, type: 3}
-  - {fileID: 3299722077759357487, guid: 607538747f0ba06499682e0bf01fca8d, type: 3}
-  - {fileID: 3362353698596247652, guid: 36e74cbf78ff25b4cbd86931af500d95, type: 3}
-  - {fileID: 5826791918109836352, guid: 4ca2f90c8b0c9cb42832eeafa5e37caf, type: 3}
-  - {fileID: 7065766742501485984, guid: 96af0fc767cc0094f83bd17af4c75a94, type: 3}
-  - {fileID: 8301653782276374170, guid: f2b2ec37cf5dc1f4cb97d0a7aace0b1f, type: 3}
+  materialModelPrefabs: []
   spawnPoints:
   - {fileID: 1988699297}
   - {fileID: 1399050790}
@@ -3597,6 +3579,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10.24, y: 10.24, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &919132147615138285 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6792926039924517843, guid: 7bb05d80741b7a24ca6c279d385f577d, type: 3}
+  m_PrefabInstance: {fileID: 1399188812165792402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919132148898219561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3794,7 +3781,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6792926039924517843, guid: 7bb05d80741b7a24ca6c279d385f577d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3469287837948531955}
   m_SourcePrefab: {fileID: 100100000, guid: 7bb05d80741b7a24ca6c279d385f577d, type: 3}
 --- !u!1 &1440040806734746161
 GameObject:
@@ -5073,6 +5063,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148898219561}
   m_Mesh: {fileID: -615596893824688105, guid: 4c380dde9cf330d41b8673c214a3ae9b, type: 3}
+--- !u!114 &3469287837948531955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147615138285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e7872d3275b884e8f8a69c1022340c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeOfMaterial: 0
+  glowDuration: 0.5
+  popScale: 1.2
+  popDuration: 0.3
+  shakeDuration: 0.4
+  shakeIntensity: 0.1
+  isSolved: 0
+  glowMaterial: {fileID: 0}
+  greenMaterial: {fileID: 0}
+  assignedSpawnPoint: {fileID: 0}
 --- !u!1 &3530089330073741571
 GameObject:
   m_ObjectHideFlags: 0

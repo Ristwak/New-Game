@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class MaterialSpawnManager : MonoBehaviour
 {
     [Header("Shape Prefabs")]
-    public List<GameObject> shapePrefabs;
+    public List<GameObject> materialModelPrefabs;
 
     [Header("Spawn Settings")]
     public List<Transform> spawnPoints; // Assign in Inspector
@@ -15,7 +15,7 @@ public class MaterialSpawnManager : MonoBehaviour
     public void Init()
     {
         // Reset remaining shapes
-        remainingShapes = new List<GameObject>(shapePrefabs);
+        remainingShapes = new List<GameObject>(materialModelPrefabs);
 
         // Mark all spawn points as free
         spawnPointStatus.Clear();
@@ -42,7 +42,7 @@ public class MaterialSpawnManager : MonoBehaviour
         GameObject shape = Instantiate(prefab, freeSpot.position, prefab.transform.rotation);
         shape.name = prefab.name;
 
-        ShapeValidator validator = shape.GetComponent<ShapeValidator>();
+        MaterialValidator validator = shape.GetComponent<MaterialValidator>();
         if (validator != null)
             validator.assignedSpawnPoint = freeSpot;
 

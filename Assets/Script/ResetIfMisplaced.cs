@@ -32,7 +32,7 @@ public class ResetIfMisplaced : MonoBehaviour
         isBeingHeld = false;
 
         // Check if solved before resetting
-        ShapeValidator validator = GetComponent<ShapeValidator>();
+        MaterialValidator validator = GetComponent<MaterialValidator>();
         if (validator == null || !validator.isSolved)
         {
             ResetToOriginalPosition();
