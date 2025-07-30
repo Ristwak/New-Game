@@ -4,6 +4,7 @@ public class MaterialValidator : MonoBehaviour
 {
     [Header("Material Info")]
     public MaterialType typeOfMaterial;  // Set this in the prefab
+    public string materialName;
 
     [Header("Feedback")]
     public float glowDuration = 0.5f;
@@ -30,6 +31,11 @@ public class MaterialValidator : MonoBehaviour
         rend = GetComponent<Renderer>();
         originalMaterial = rend.material;
         originalScale = transform.localScale;
+
+        if (string.IsNullOrEmpty(materialName))
+        {
+            materialName = CleanName(gameObject.name);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -135,6 +141,16 @@ public class MaterialValidator : MonoBehaviour
         int count = box.childCount;
         float offsetY = 0.1f; // Adjust spacing
         return new Vector3(0, offsetY * count, 0);
+    }
+
+    private string CleanName(string rawName)
+    {
+        // Removes " (Clone)" or " (1)" etc. from name
+        int index = rawName.IndexOf('(');
+        if (index > 0)
+            rawName = rawName.Substring(0, index);
+
+        return rawName.Trim();
     }
 }
 
