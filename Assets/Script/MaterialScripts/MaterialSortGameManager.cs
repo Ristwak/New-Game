@@ -125,6 +125,7 @@ public class MaterialSortGameManager : MonoBehaviour
             timerText.text = "Done!";
 
         timerPanel.SetActive(false);
+        nameText.gameObject.SetActive(false);
         uVHolder.SetActive(false);
         foreach (var tracker in activeShapes)
         {

@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class MaterialValidator : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class MaterialValidator : MonoBehaviour
         originalMaterial = rend.material;
         originalScale = transform.localScale;
 
+        // Clean name if not already set
         if (string.IsNullOrEmpty(materialName))
         {
             materialName = CleanName(gameObject.name);
@@ -58,7 +61,7 @@ public class MaterialValidator : MonoBehaviour
         }
     }
 
-    System.Collections.IEnumerator GlowAndPop()
+    IEnumerator GlowAndPop()
     {
         isAnimating = true;
         rend.material = glowMaterial;
@@ -76,28 +79,35 @@ public class MaterialValidator : MonoBehaviour
 
         transform.localScale = originalScale;
 
-        // Set to permanent green
+        // Set to green to indicate correct
         rend.material = greenMaterial;
 
-        // Wait for glow duration
+        // Wait briefly
         yield return new WaitForSeconds(glowDuration);
 
-        // Disable interaction and physics
-        var grab = GetComponent<UnityEngine.XR.Interaction.Toolkit.XRGrabInteractable>();
+        // Disable grabbing interaction
+        XRGrabInteractable grab = GetComponent<XRGrabInteractable>();
         if (grab != null)
+        {
+            grab.interactionLayers = 0;
             grab.enabled = false;
+        }
 
-        var rb = GetComponent<Rigidbody>();
+        // Lock movement/physics
+        Rigidbody rb = GetComponent<Rigidbody>();
         if (rb != null)
         {
             rb.isKinematic = true;
             rb.useGravity = false;
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.constraints = RigidbodyConstraints.FreezeAll;
         }
 
-        // Snap the material into the drop box
+        // Snap and parent inside the drop box
         if (lastDropBoxTransform != null)
         {
-            transform.SetParent(lastDropBoxTransform); // So it moves with the box if needed
+            transform.SetParent(lastDropBoxTransform);
             transform.localPosition = GetNextAvailableSpot(lastDropBoxTransform);
         }
 
@@ -105,7 +115,7 @@ public class MaterialValidator : MonoBehaviour
         isAnimating = false;
     }
 
-    System.Collections.IEnumerator ShakeAndShrink()
+    IEnumerator ShakeAndShrink()
     {
         isAnimating = true;
         Vector3 startPos = transform.position;
@@ -132,6 +142,7 @@ public class MaterialValidator : MonoBehaviour
         }
 
         transform.localScale = originalScale;
+
         ResetIfMisplaced.instance.ResetToOriginalPosition();
         isAnimating = false;
     }
@@ -139,7 +150,7 @@ public class MaterialValidator : MonoBehaviour
     private Vector3 GetNextAvailableSpot(Transform box)
     {
         int count = box.childCount;
-        float offsetY = 0.1f; // Adjust spacing
+        float offsetY = 0.1f; // Vertical stacking
         return new Vector3(0, offsetY * count, 0);
     }
 
@@ -153,4 +164,3 @@ public class MaterialValidator : MonoBehaviour
         return rawName.Trim();
     }
 }
-

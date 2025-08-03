@@ -313,7 +313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: iron
+  m_text: Name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 1e0eba8f4f902dc40bbe03719170d967, type: 2}
   m_sharedMaterial: {fileID: 4537721925834576297, guid: 1e0eba8f4f902dc40bbe03719170d967, type: 2}
@@ -883,12 +883,14 @@ MonoBehaviour:
   - {fileID: 6792926039924517843, guid: 7bb05d80741b7a24ca6c279d385f577d, type: 3}
   - {fileID: 2021566043268453253, guid: 2eb3383748567434587116c34aeb1dd6, type: 3}
   - {fileID: 7058234265947243909, guid: e2b0ef9a6ddafec4f9e7436d9341a8fc, type: 3}
+  - {fileID: 4379575129928060556, guid: e512d0f2febb1cb4da8d17701a26004d, type: 3}
   - {fileID: 2866604534737057063, guid: 05358e31829ab3647af46c26004b7672, type: 3}
   - {fileID: 5644028102255014648, guid: 7feb35330023ba244b67bb9aab1d14cc, type: 3}
   - {fileID: 4737644796756068789, guid: 69aabd766d362f64f92bbf9769510ef1, type: 3}
-  - {fileID: 2419372712233527618, guid: 5e3cf3f5edcd8c64ca250c30904b1906, type: 3}
-  - {fileID: 2311778232811119799, guid: 4b36c8103e7a4c241b10ca4ff043d2a0, type: 3}
   - {fileID: 3804092198497325030, guid: e99b6ec61f4ff5d4c8ab00caa584f2c4, type: 3}
+  - {fileID: 2419372712233527618, guid: 5e3cf3f5edcd8c64ca250c30904b1906, type: 3}
+  - {fileID: 4106148925020581279, guid: 76954ce37ae771d4189dbe9337f1dd7d, type: 3}
+  - {fileID: 2311778232811119799, guid: 4b36c8103e7a4c241b10ca4ff043d2a0, type: 3}
   spawnPoints:
   - {fileID: 1988699297}
   - {fileID: 1399050790}
@@ -1108,7 +1110,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -1411,7 +1413,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
