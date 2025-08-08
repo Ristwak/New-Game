@@ -4322,7 +4322,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2240881192776429942}
   m_Layer: 0
-  m_Name: insulatorBox
+  m_Name: InsulatorBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
