@@ -30,8 +30,24 @@ public class MaterialValidator : MonoBehaviour
 
     void Start()
     {
+        // Try to get Renderer on this object
         rend = GetComponent<Renderer>();
-        originalMaterial = rend.material;
+
+        // If not found, search children
+        if (rend == null)
+        {
+            rend = GetComponentInChildren<Renderer>();
+        }
+
+        if (rend != null)
+        {
+            originalMaterial = rend.material;
+        }
+        else
+        {
+            Debug.LogError($"❌ No Renderer found on {gameObject.name} or its children.");
+        }
+
         originalScale = transform.localScale;
 
         // Clean name if not already set
@@ -64,7 +80,9 @@ public class MaterialValidator : MonoBehaviour
     IEnumerator GlowAndPop()
     {
         isAnimating = true;
-        rend.material = glowMaterial;
+
+        if (rend != null)
+            rend.material = glowMaterial;
 
         // Pop animation
         Vector3 targetScale = originalScale * popScale;
@@ -80,7 +98,8 @@ public class MaterialValidator : MonoBehaviour
         transform.localScale = originalScale;
 
         // Set to green to indicate correct
-        rend.material = greenMaterial;
+        if (rend != null)
+            rend.material = greenMaterial;
 
         // Wait briefly
         yield return new WaitForSeconds(glowDuration);

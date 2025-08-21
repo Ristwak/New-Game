@@ -24,7 +24,6 @@ public class MaterialSortGameManager : MonoBehaviour
 
 
     [Header("UV Holder")]
-    public GameObject uVHolder;
 
     private List<MaterialsTracker> activeShapes = new List<MaterialsTracker>();
     private float score = 0;
@@ -126,7 +125,6 @@ public class MaterialSortGameManager : MonoBehaviour
 
         timerPanel.SetActive(false);
         nameText.gameObject.SetActive(false);
-        uVHolder.SetActive(false);
         foreach (var tracker in activeShapes)
         {
             if (tracker != null)

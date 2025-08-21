@@ -372,7 +372,7 @@ MonoBehaviour:
   m_SmoothPosition: 0
   m_SmoothPositionAmount: 8
   m_TightenPosition: 0.1
-  m_TrackRotation: 1
+  m_TrackRotation: 0
   m_SmoothRotation: 0
   m_SmoothRotationAmount: 8
   m_TightenRotation: 0.1
@@ -425,8 +425,8 @@ MonoBehaviour:
   shakeDuration: 0.4
   shakeIntensity: 0.1
   isSolved: 0
-  glowMaterial: {fileID: 0}
-  greenMaterial: {fileID: 0}
+  glowMaterial: {fileID: 2100000, guid: b637d090b2967234fb97835651dae26e, type: 2}
+  greenMaterial: {fileID: 2100000, guid: 7f93e5a0df31c3845abee9873420d355, type: 2}
   assignedSpawnPoint: {fileID: 0}
 --- !u!114 &9189394149314402023
 MonoBehaviour:
