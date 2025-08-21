@@ -69,11 +69,3 @@ The game uses **gesture-based locomotion** for natural movement and **object gra
 4. Press ▶️ to run inside the Unity Editor or build to your VR device.
 
 ---
-
-##📌 Controls
-
-Action	Gesture / Input
-Move Forward	Left-hand 👍
-Move Backward	Right-hand 👍
-Grab Sock	VR Controller / Hand Grab
-Place Sock	Release in Basket
