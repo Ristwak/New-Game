@@ -1,80 +1,79 @@
-# ShapeScape VR
+# 🧦 Sock Sorter VR  
 
-ShapeScape is an immersive educational VR puzzle game that makes learning math visual, interactive, and fun. Designed especially for students, ShapeScape helps players build a strong understanding of geometry, spatial reasoning, and formulas — all within an engaging virtual environment.
+**Sock Sorter VR** is an immersive virtual reality game where players grab and sort socks into the correct baskets.  
+The game uses **gesture-based locomotion** for natural movement and **object grabbing mechanics** for sock interaction.  
 
-## 🎮 Gameplay Overview
+---
 
-Players are placed in a 3D classroom where they must:
+## ✨ Features  
 
-- Match unfolded 2D nets (UVs) to their correct 3D shapes
-- Interact with objects using VR hand controls
-- Solve visual-spatial puzzles under a global 5-minute timer
-- Use logic and memory to complete formula-based challenges in later levels
+- **Gesture-Based Locomotion**  
+  - Left-hand 👍 → Move Forward  
+  - Right-hand 👍 → Move Backward  
 
-Correctly placed shapes animate and glow, while incorrectly placed ones return to their original positions. Each decision matters — and time is always ticking.
+- **Sock Spawning & Tracking**  
+  - Socks spawn dynamically.  
+  - Each sock is validated with its unique color/type.  
 
-## 🧠 Educational Goals
+- **Sorting & Validation**  
+  - Place socks into their designated baskets.  
+  - Validation logic checks correctness.  
+  - Once placed, socks cannot be grabbed again during validation.  
 
-ShapeScape is ideal for:
-- Middle and high school students
-- Classrooms that use interactive or VR-based learning
-- Anyone interested in learning geometry through intuitive exploration
+- **Immersive Interaction**  
+  - Built with **Unity XR Interaction Toolkit** (or compatible VR framework).  
+  - Realistic grabbing & placement.  
 
-## 🕹️ VR Controls
+---
 
-| Action               | Control                         |
-|----------------------|----------------------------------|
-| Move forward         | Left-hand thumbstick             |
-| Move backward        | Right-hand thumbstick            |
-| Grab & Place Shapes  | VR hand interaction              |
+## 🎮 Gameplay Flow  
 
-## 🕒 Time Mechanics
+1. A new sock spawns in the scene.  
+2. The UI shows the name/type of the spawned sock (e.g., *Red Sock*).  
+3. Player moves around the environment using **thumb-up gestures**.  
+4. Player grabs the sock and places it inside the correct basket.  
+5. During placement validation, the sock cannot be grabbed again.  
+6. Sock is destroyed (or handled accordingly) once validation is complete.  
 
-The game runs on a total 5-minute timer. Players must complete all shape-matching puzzles within this duration. Each shape batch (typically 3 shapes at a time) must be solved before new ones appear. If the time runs out, the game ends.
+---
 
-## 🔧 Features
+## 🛠️ Tech Stack  
 
-- ✅ Real 3D geometry with accurate 2D nets  
-- ✅ Timed puzzle batches with instant feedback  
-- ✅ Auto-correction for incorrect placements  
-- ✅ VR-compatible with intuitive hand controls  
-- ✅ Clean classroom aesthetic and stylized environment  
-- ✅ Supports expansion with math formulas and logic puzzles  
+- **Engine**: Unity (XR Interaction Toolkit, Hand Tracking)  
+- **Language**: C#  
+- **Platform**: VR (tested with OpenXR-compatible headsets)  
 
-## 🗂️ Project Structure
+---
 
-- `Scripts/` – All MonoBehaviours for game logic, spawning, validation, etc.
-- `Prefabs/` – Shape prefabs and reusable components
-- `Scenes/` – Main game scenes like ShapeScape and HomeScene
-- `Materials/Models/` – 3D assets for classrooms, shapes, props
-- `UI/` – TextMeshPro elements and button controls
+## 📂 Project Structure  
 
-## 🧩 Built With
+/Scripts
+- SpawnManager.cs # Handles spawning of socks
+- SockTracker.cs # Tracks spawned socks
+- SockValidator.cs # Validates sock correctness
+- PlayerMovement.cs # Gesture-based locomotion
+- BasketHandler.cs # Disables grabbing after placement
+/Prefabs
+- Socks (Red, Blue, Striped, etc.)
+- Baskets
 
-- Unity 2022.3.39f1
-- XR Toolkit (for VR interaction)
-- TextMeshPro (UI)
-- C# (Game logic & timers)
+---
 
-## 🚀 Getting Started
+## 🚀 Getting Started  
 
-To run the game:
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/your-username/sock-sorter-vr.git
+2. Open in Unity Hub.
+3. Set up XR Plug-in Management for your VR headset.
+4. Press ▶️ to run inside the Unity Editor or build to your VR device.
 
-1. Clone the repository
-2. Open the project in Unity 2022.3 or later
-3. Make sure the XR Plugin and OpenXR are enabled
-4. Enter play mode using a VR-compatible device
+---
 
-## 📚 License
+##📌 Controls
 
-This project is for educational and non-commercial use. All rights reserved to Ristwak Pandey.
-
-## 👨‍🏫 Credits
-
-Created by a Ristwak Pandey to make STEM education immersive and playful through VR.
-
-## 📽️ Gameplay Video
-
-
-https://github.com/user-attachments/assets/21eaab3d-8083-4826-9cb0-cf3f4c05fbfe
-
+Action	Gesture / Input
+Move Forward	Left-hand 👍
+Move Backward	Right-hand 👍
+Grab Sock	VR Controller / Hand Grab
+Place Sock	Release in Basket
