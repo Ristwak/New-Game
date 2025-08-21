@@ -1685,7 +1685,7 @@ GameObject:
   - component: {fileID: 3726519327186746132}
   - component: {fileID: 5044685570011056834}
   m_Layer: 0
-  m_Name: Object_13
+  m_Name: Object_13 with collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1771,7 +1771,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

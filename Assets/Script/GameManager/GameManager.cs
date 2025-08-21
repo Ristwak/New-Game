@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     {
         // optionPanel.SetActive(true);
         loadingPanel.SetActive(true);
-        SceneManager.LoadScene("ShapeScape");
+        SceneManager.LoadScene("SockSorter");
         pointLight.gameObject.SetActive(false);
         homePanel.SetActive(false);
         aboutPanel.SetActive(false);

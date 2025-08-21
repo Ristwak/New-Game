@@ -1155,7 +1155,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0, y: 0}
-  m_SizeDelta: {x: 0, y: 125.6}
+  m_SizeDelta: {x: 0, y: 54.02}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &666432079
 GameObject:
@@ -2203,25 +2203,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>About the Game \u2013 ShapeScape</b>\n\nShapeScape is an immersive
-    VR puzzle game designed to make learning math fun, visual, and interactive. Set
-    in a stylized virtual classroom, players explore 3D environments where they must
-    match unfolded 2D nets (UVs) to their correct 3D shapes \u2014 reinforcing spatial
-    reasoning, geometry, and critical thinking.\n\nOnce a shape is placed correctly,
-    it glows and transforms with satisfying visual feedback. But the experience doesn't
-    stop there \u2014 future levels introduce formula-based challenges and time-based
-    tasks that combine logic, memory, and visual learning for a complete STEM journey.\n\n<b>Key
-    Features</b>\n\n\u2022 Shape Folding: Place accurate 2D nets to build real 3D
-    mathematical shapes\n\u2022 Geometry Meets Logic: Practice with curriculum-based
-    shapes like cones, prisms, pyramids, and more\n\u2022 Instant Feedback: Watch
-    the shape animate and glow when placed correctly\n\u2022 Auto-Correction: Misplaced
-    shapes smoothly return to their original positions\n\u2022 Timed Gameplay: The
-    entire game must be completed within 5 minutes, adding urgency and pacing to
-    the experience\n\u2022 VR Controls:\n\u2003- Left Thumbstick \u2192 Move the
-    player forward\n\u2003- Right Thumbstick \u2192 Move the player backward\n\n<b>Why
-    Play?</b>\n\nWhether you're a student, a teacher, or a puzzle lover, ShapeScape
-    is a unique blend of education and immersive VR gameplay \u2014 turning abstract
-    math into something you can touch, move, and understand."
+  m_text: "<b>About the Game \u2013 Sock Sorter</b>\r\n\r\nSock Sorter is a fun and
+    interactive VR game designed to make everyday problem-solving exciting, engaging,
+    and active. Set in a cozy virtual room, players must quickly sort and match socks
+    by color and pattern \u2014 reinforcing attention to detail, hand\u2013eye coordination,
+    and quick decision-making skills.\r\n\r\nOnce a pair is correctly matched, it
+    glows and snaps together with satisfying visual feedback. But the challenge ramps
+    up \u2014 higher levels introduce mixed patterns, timed tasks, and tricky decoys
+    that test both memory and reflexes for a complete casual VR experience.\r\n\r\n<b>Key
+    Features</b>\r\n\r\n\u2022 Sock Matching: Pick, drag, and pair socks correctly
+    from the basket  \r\n\u2022 Pattern Recognition: Identify unique designs, colors,
+    and textures  \r\n\u2022 Instant Feedback: Watch socks glow and snap together
+    when matched  \r\n\u2022 Auto-Correction: Incorrect pairs smoothly return to
+    the basket  \r\n\u2022 Timed Gameplay: The entire game must be completed within
+    5 minutes, adding urgency and pacing to the experience  \r\n\u2022 VR Controls: 
+    \r\n\u2003- Left Hand (Thumbs Up) \u2192 Move the player forward  \r\n\u2003-
+    Right Hand (Thumbs Up) \u2192 Move the player backward  \r\n\r\n<b>Why Play?</b>\r\n\r\nWhether
+    you're a casual gamer, a VR enthusiast, or someone looking for a lighthearted
+    challenge, Sock Sorter transforms a simple household task into an immersive and
+    entertaining experience \u2014 turning matching socks into something fun, fast-paced,
+    and rewarding.\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
