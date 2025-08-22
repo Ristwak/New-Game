@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 8980113103778614722}
   - component: {fileID: 216467920763549447}
   - component: {fileID: 5789339476581825089}
+  - component: {fileID: 4972338569409201766}
   m_Layer: 0
   m_Name: polySurface14
   m_TagString: Untagged
@@ -710,6 +711,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4972338569409201766
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965743724210082641}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.2843103, y: 2.0676212, z: 2.03024}
+  m_Center: {x: -0.000000059604645, y: -0.000000059604645, z: 0.000000059604645}
 --- !u!1 &5041342875495551174
 GameObject:
   m_ObjectHideFlags: 0
@@ -1363,7 +1385,6 @@ GameObject:
   - component: {fileID: 3476755570873741300}
   - component: {fileID: 9060721535757762984}
   - component: {fileID: 7796978754004470048}
-  - component: {fileID: 6176444806875395916}
   - component: {fileID: 3427502120446086815}
   - component: {fileID: 4058665158346355044}
   - component: {fileID: 1854656765631252382}
@@ -1448,28 +1469,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6176444806875395916
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9055780344487701182}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6329158148709259305, guid: 0d34c20fd59f9df40bcebfb80262d1c5, type: 3}
 --- !u!54 &3427502120446086815
 Rigidbody:
   m_ObjectHideFlags: 0
